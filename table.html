@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Морской порт города Красноастанска</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="searchbar">
+      <input type="text" name="search"/><img src="img/lupa.png"/>
+    </div>
+    <div class="menubar">
+      <div class="menucontainer">
+        <div class="zagolovok">Морской порт города Красноастанска</div><a class="not_active" href="index.html">Главная</a><a class="not_active" href="history.html">История порта</a><a class="active" href="table.html">Таблица мониторинга</a>
+      </div>
+    </div>
+    <div class="gallery">
+      <div class="img1"><img src="img/pic1.jpg"/>
+      </div>
+      <div class="img2"><img src="img/pic2.jpg"/>
+      </div>
+      <div class="img3"><img src="img/pic3.jpg"/>
+      </div>
+    </div>
+    <h1>Таблица мониторинга</h1>
+    <p>В данной таблице представлены данные о пришедших и ушедших судах за октябрь 2023</p>
+    <details>
+      <summary>График</summary>
+      <form>
+        <p>
+          <table>
+            <tr>
+              <th>Значение по X</th>
+              <th>Значение по Y</th>
+            </tr>
+            <tr>
+              <td>
+                <input type="radio" name="hor" value="hor1">Дата Прибытия;<br>
+                <input type="radio" name="hor" value="hor2">Дата отбытия <br>
+              </td>
+              <td>
+                <input type="radio" name="ver" value="ver1">Общая загруженности <br>
+                <input type="radio" name="ver" value="ver2">Общая вместимости <br>
+                <input type="radio" name="ver" value="ver3">Общее колиество кораблей <br>
+              </td>
+            </tr>
+          </table>
+        </p>
+        <input type="button" value="Создать график">
+      </form>
+    </details>
+    <details>
+      <summary>Фильтр</summary>
+      <form id="filterForm">
+        <p>Фильтр по ИМО судна: <input type="text" name="fil1" id="IMO"><br>
+		Фильтр по модели судна: <input type="text" name="fil2" id="Model"><br>
+		Фильтр по дате прибытия: <input type="date" min="2023-10-01" max="2023-10-31" name="fil4" id="DataArrival"><br>
+		Фильтр по Дате отбытия: <input type="date" min="2023-10-01" max="2023-10-31" name="fil5" id="DateDeparture"><br>
+		Фильтр по вместимости: В диапозоне от <input type="number" name="fil6_1" id="CapacityFrom">
+		до <input type="number" name="fil6_2" id="CapacityTo"><br>
+		Фильтр по нагруженности: В диапозоне от <input type="number" name="fil7_1" id="LoadFrom">
+		до <input type="number" name="fil7_2" id="LoadTo"><br>
+		  <input type="button" value="Найти" onclick="filterTable(portData,'list',this.form)" id="filterButton">
+          <input type="button" value="Очистить фильтры" onclick="clearFilter()" id="filterClearButton">
+        </p>
+      </form>
+    </details>
+    <details>
+      <summary>Сортировка</summary>
+      <form id="sort">
+        <p>
+			<p>
+           Первый уровень:
+          <select id="select1">
+          </select>
+		  по убыванию? <input type="checkbox" id="select1Desc">
+          </p>
+		  <p>Второй уровень:
+		  <select id="select2">
+		  </select>
+		  по убыванию? <input type="checkbox" id="select2Desc">
+		  </p>
+		  <p>Третий уровень:
+          <select id="select3">
+          </select>
+		  по убыванию? <input type="checkbox" id="select3Desc">
+		  </p>
+        </p>
+        <input type="button" value="Отcортировать" onclick="sortTable('list',this.form)">
+        <input type="button" value="Сброс" onclick="sortReset()">	
+      </form>
+    </details>
+	
+	
+    <table align="center" border="1" cellpadding="2" cellspacing="0" id="list">
+    </table>
+	
+	
+    <div class="contacts"><span>© Зеленин К.В., Б9121-09.03.04, 2023-2024 </span><span class="rightc">Контакты</span></div>
+	<script defer src="js/SortFilter.js"></script>
+    <script defer src="js/dataNew.js"></script>
+  </body>
+</html>
